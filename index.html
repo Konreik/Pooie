@@ -1,0 +1,104 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Do you love Reikonzon?</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #f06, #f79);
+            font-family: Arial, sans-serif;
+            margin: 0;
+            color: #fff;
+        }
+        .container {
+            text-align: center;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        button {
+            padding: 15px 30px;
+            font-size: 18px;
+            margin: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 25px;
+            background-color: blue;
+            color: white;
+            transition: 
+            
+        }
+        button:hover {
+            background-color: blue;
+            transform: translateY(-2px);
+        }
+        button:focus {
+            outline: none;
+            box-shadow: none;
+        }
+        button::-moz-focus-inner {
+            border: 0;
+        }
+        #message {
+            margin-top: 20px;
+            font-size: 22px;
+            color: #00ff99;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Do you love Reikzon?</h1>
+        <div class="buttons">
+            <button id="yesBtn">Yes</button>
+            <button id="noBtn">No</button>
+        </div>
+        <div id="message">Reikzon loves you too, pookie!</div>
+    </div>
+
+    <script>
+        const yesBtn = document.getElementById('yesBtn');
+        const noBtn = document.getElementById('noBtn');
+        const message = document.getElementById('message');
+
+        yesBtn.addEventListener('click', () => {
+            message.style.display = 'block';
+        });
+
+        noBtn.addEventListener('mouseover', () => {
+            moveNoButton();
+        });
+
+        noBtn.addEventListener('focus', (event) => {
+            event.target.blur();
+        });
+
+        noBtn.addEventListener('mousedown', (event) => {
+            event.preventDefault();
+        });
+
+        function moveNoButton() {
+            const x = Math.random() * (window.innerWidth - noBtn.offsetWidth);
+            const y = Math.random() * (window.innerHeight - noBtn.offsetHeight);
+            noBtn.style.position = 'absolute';
+            noBtn.style.left = `${x}px`;
+            noBtn.style.top = `${y}px`;
+        }
+
+        noBtn.addEventListener('click', (event) => {
+            event.preventDefault();
+            moveNoButton();
+        });
+    </script>
+</body>
+</html>
